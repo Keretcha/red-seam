@@ -1,0 +1,23 @@
+@import '../../Colors/common-colors.scss';
+
+.container {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.content {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+

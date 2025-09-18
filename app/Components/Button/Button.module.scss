@@ -1,0 +1,8 @@
+@import "../../Colors/common-colors.scss";
+
+.defaultButton {
+  background-color: $button-color;
+  color: $buttonText-color;
+  border: none;
+  cursor: pointer;
+}

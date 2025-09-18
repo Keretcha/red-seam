@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1920px;
+    padding: 12px 20px;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
