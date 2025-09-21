@@ -1,0 +1,55 @@
+import {
+  IData,
+  IPaginatedData,
+} from "@/shared/api/types/interfaces/data.interface";
+import { API_CONFIG } from "@/shared/config/config";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
+
+export const baseFetch = async <T, P extends boolean = false>(
+  url: string,
+  data?: RequestInit,
+  isFormData = false,
+): Promise<P extends true ? IPaginatedData<T> : IData<T>> => {
+  const cookiesStore = await cookies();
+  const accessToken = cookiesStore.get('accessToken')?.value;
+
+  const headers = {
+    ...(data?.headers ?? {}),
+  };
+
+  if (!isFormData) {
+    Object.assign(headers, {
+      "Content-Type": "application/json",
+    });
+  }
+
+  if (accessToken) {
+    Object.assign(headers, {
+      Authorization: `Bearer ${accessToken}`,
+    });
+  }
+
+  const res = await fetch(`${API_CONFIG.baseUrl}/${url}`, {
+    ...(data ?? {}),
+    headers,
+  });
+
+  if (res.status === 401 && accessToken) {
+    return redirect("/logout");
+  }
+
+  let body = {};
+
+  try {
+    body = await res.json();
+  } catch (e) {
+    console.error(e);
+  }
+
+  return {
+    ok: res.ok,
+    ...body,
+  } as P extends true ? IPaginatedData<T> : IData<T>;
+};
