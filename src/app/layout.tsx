@@ -1,19 +1,15 @@
 /** @format */
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { HeroUIProvider } from "@heroui/system";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  weight: ["400", "500", "600"],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <HeroUIProvider>
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <body className={`${poppins.className}`}>
           {children}
         </body>
       </HeroUIProvider>
