@@ -4,12 +4,13 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { HeroUIProvider } from "@heroui/system";
+import Header from "@/shared/components/Header/Header";
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang='en'>
       <HeroUIProvider>
         <body className={`${poppins.className}`}>
+          <Header />
           {children}
         </body>
       </HeroUIProvider>
