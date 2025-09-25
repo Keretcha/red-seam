@@ -1,94 +1,54 @@
 /** @format */
 
-import Image from "next/image";
+import Filter from "@/shared/components/Filter/Filter";
 import styles from "./page.module.css";
-import { Button } from "@heroui/button";
+import ProductCard from "@/shared/components/ProductCard/ProductCard";
+import { productsService } from "@/shared/services/products.service";
+import Image from "next/image";
+import Pagination from "@/shared/components/Pagination/Pagination";
 
-export default function Home() {
+export default async function Home({ searchParams }: { searchParams: any }) {
+  const { priceFrom, priceTo } = searchParams;
+
+  const products = await productsService.getProducts(
+    priceFrom || "",
+    priceTo || ""
+  );
+
   return (
-    <div className={styles.page}>
-      <Button>Click Me</Button>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src='/next.svg'
-          alt='Next.js logo'
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href='https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app'
-            target='_blank'
-            rel='noopener noreferrer'>
-            <Image
-              className={styles.logo}
-              src='/vercel.svg'
-              alt='Vercel logomark'
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href='https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={styles.secondary}>
-            Read our docs
-          </a>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div>
+          <h1 className={styles.productHeader}>Products</h1>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href='https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Image
-            aria-hidden
-            src='/file.svg'
-            alt='File icon'
-            width={16}
-            height={16}
+        <div className={styles.right}>
+          <div className={styles.Fcontainer}>
+            <div className={styles.filter}>
+              <span className={styles.counted}>
+                Showing 1-10 of 100 results
+              </span>
+              <span>|</span>
+              <div className={styles.actions}>
+                <Filter />
+                <span>sort by</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.content}>
+        {products.data?.map((product: any) => (
+          <ProductCard
+            key={product.id}
+            title={product.name}
+            price={product.price}
+            imageUrl={product.cover_image}
           />
-          Learn
-        </a>
-        <a
-          href='https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Image
-            aria-hidden
-            src='/window.svg'
-            alt='Window icon'
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href='https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Image
-            aria-hidden
-            src='/globe.svg'
-            alt='Globe icon'
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        ))}
+      </div>
+      <div>
+        <Pagination />
+      </div>
     </div>
   );
 }
