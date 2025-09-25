@@ -1,25 +1,31 @@
 /** @format */
-
+"use client";
 
 import styles from "./PriceTag.module.scss";
 import XIcon from "../Icons/XIcon";
-import Link from "next/link";
-import { FC } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
-interface Props {
-    priceFrom: number;
-    priceTo: number
-}
+const PriceTag = () => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const priceFrom = searchParams.get("priceFrom");
+  const priceTo = searchParams.get("priceTo");
 
-const PriceTag: FC<Props> = (props) => {
+  const onClick = () => {
+    const currentSearchParams = new URLSearchParams(searchParams);
+    currentSearchParams.delete("priceFrom");
+    currentSearchParams.delete("priceTo");
+    router.replace(`/?${currentSearchParams.toString()}`);
+  };
+
   return (
     <div className={styles.container}>
       <span>
-        Price: {props.priceFrom}-{props.priceTo}
+        Price: {priceFrom}-{priceTo}
       </span>
-      <Link href={'/'}>
+      <div onClick={onClick}>
         <XIcon />
-      </Link>
+      </div>
     </div>
   );
 };

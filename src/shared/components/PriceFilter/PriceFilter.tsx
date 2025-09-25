@@ -15,6 +15,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import PriceFilterInput from "./components/PriceFilterInput/PriceFilterInput";
 
 const PriceFilter = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [priceFrom, setPriceFrom] = useState("");
   const [priceTo, setPriceTo] = useState("");
   const router = useRouter();
@@ -31,16 +32,26 @@ const PriceFilter = () => {
   }, []);
 
   const onApplyClick = () => {
+    const currentSearchParams = new URLSearchParams(searchParams);
+
     if (!priceFrom && !priceTo) {
-      router.replace("/");
-      return;
+      currentSearchParams.delete("priceFrom");
+      currentSearchParams.delete("priceTo");
+    } else {
+      currentSearchParams.delete("priceTo");
+      currentSearchParams.delete("priceFrom");
+      currentSearchParams.append("priceTo", priceTo);
+      currentSearchParams.append("priceFrom", priceFrom);
     }
 
-    router.replace(`/?priceFrom=${priceFrom}&priceTo=${priceTo}`);
+    setIsOpen(false);
+    router.replace(`/?${currentSearchParams.toString()}`);
   };
 
   return (
     <Popover
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
       classNames={{
         trigger: styles.trigger,
         content: styles.content,
