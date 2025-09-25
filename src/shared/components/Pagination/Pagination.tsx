@@ -1,15 +1,33 @@
 /** @format */
 "use client";
 
-import { Pagination } from "@heroui/react";
+import { Pagination as HeroUIPagination } from "@heroui/react";
 import styles from "./Pagination.module.scss";
+import { useRouter, useSearchParams } from "next/navigation";
+import { number } from "framer-motion";
+import { FC } from "react";
 
-export default function CustomPagination() {
+interface Props {
+  total: number;
+}
+
+const Pagination: FC<Props> = (props) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const onPageChange = (page: number) => {
+    const currentSearchParams = new URLSearchParams();
+    currentSearchParams.delete("page");
+    currentSearchParams.append("page", String(page));
+
+    router.replace(`/?${currentSearchParams.toString()}`);
+  };
+
   return (
-    <Pagination
-      showControls
+    <HeroUIPagination
       initialPage={1}
-      total={10}
+      total={props.total}
+      onChange={onPageChange}
       className={styles.pagination}
       classNames={{
         base: styles.base,
@@ -20,4 +38,6 @@ export default function CustomPagination() {
       }}
     />
   );
-}
+};
+
+export default Pagination;
