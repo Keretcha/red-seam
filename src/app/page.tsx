@@ -9,12 +9,13 @@ import PriceTag from "@/shared/components/PriceTag/PriceTag";
 import SortBy from "@/shared/components/SortBy/SortBy";
 
 export default async function Home({ searchParams }: { searchParams: any }) {
-  const { priceFrom, priceTo, sort } = searchParams;
+  const { priceFrom, priceTo, sort, page } = searchParams;
 
   const products = await productsService.getProducts(
-    priceFrom ,
+    priceFrom,
     priceTo,
     sort,
+    page
   );
 
   return (
@@ -41,12 +42,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
                 </div>
               </div>
             </div>
-            {priceFrom && priceTo && (
-              <PriceTag
-                priceFrom={Number(priceFrom)}
-                priceTo={Number(priceTo)}
-              />
-            )}
+            {priceFrom && priceTo && <PriceTag />}
           </div>
           <div className={styles.productsWrapper}>
             {products.data?.map((product: any) => (
@@ -59,7 +55,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
             ))}
           </div>
         </div>
-        <Pagination />
+        <Pagination total={products.meta.last_page} />
       </div>
     </div>
   );
