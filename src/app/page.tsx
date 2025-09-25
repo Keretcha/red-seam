@@ -6,13 +6,15 @@ import { productsService } from "@/shared/services/products.service";
 import Pagination from "@/shared/components/Pagination/Pagination";
 import PriceFilter from "@/shared/components/PriceFilter/PriceFilter";
 import PriceTag from "@/shared/components/PriceTag/PriceTag";
+import SortBy from "@/shared/components/SortBy/SortBy";
 
 export default async function Home({ searchParams }: { searchParams: any }) {
-  const { priceFrom, priceTo } = searchParams;
+  const { priceFrom, priceTo, sort } = searchParams;
 
   const products = await productsService.getProducts(
-    priceFrom || "",
-    priceTo || ""
+    priceFrom ,
+    priceTo,
+    sort,
   );
 
   return (
@@ -33,7 +35,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
                     <span>|</span>
                     <div className={styles.actions}>
                       <PriceFilter />
-                      <span>sort by</span>
+                      <SortBy />
                     </div>
                   </div>
                 </div>

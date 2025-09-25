@@ -26,7 +26,7 @@ const ProductCard: FC<Props> = (props) => {
       />
       <div className={styles.infoWrapper}>
         <h3>{props.title}</h3>
-        <p>$ {formattedPrice}</p>
+        <p>{formattedPrice}</p>
       </div>
     </div>
   );
