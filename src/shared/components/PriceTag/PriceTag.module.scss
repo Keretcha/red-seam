@@ -1,0 +1,15 @@
+@import '../../styles/colors.scss';
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px 10px 16px;
+    border-radius: 50px;
+    border: 1px solid $grey;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: $dark-blue;
+}
