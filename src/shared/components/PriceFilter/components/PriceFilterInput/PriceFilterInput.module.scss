@@ -1,0 +1,9 @@
+@import '../../../../styles/colors.scss';
+
+.inputWrapper {
+    border: 1px solid $grey;
+    border-radius: 8px;
+    min-height: 0;
+    height: auto;
+    padding: 10px 12px
+}
