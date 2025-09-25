@@ -1,0 +1,40 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.base {
+  display: flex;
+  gap: 8px;
+}
+
+.item {
+  border: 1px solid #F8F6F7;
+  background: transparent;
+  color: #212B36;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+.cursor {
+  border: 1px solid #ef4444 !important;
+  color: #ef4444;
+  border-radius: 4px;
+  background: transparent;
+  font-weight: 700;
+}
+
+.nav {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+.nav[data-active="true"] {
+  color: #10151F !important;
+  transition: none !important;
+}
