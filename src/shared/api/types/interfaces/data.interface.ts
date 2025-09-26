@@ -2,6 +2,7 @@ interface IDataBase<T> {
   status: number;
   ok: boolean;
   data: T;
+  errors?: Record<string, string[]>
 }
 
 export interface IPaginatedData<T> extends IDataBase<T>{
