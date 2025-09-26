@@ -1,0 +1,76 @@
+@import "../../styles/colors.scss";
+
+.base {
+    max-width: 876px;
+    width: 100%;
+}
+
+
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 74px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+
+.doneIcon {
+    padding: 24px 20px;
+    background-color: #F8F6F7;
+    border-radius: 50%;
+    max-width: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.congratsText {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+
+    h2 {
+        font-weight: 600;
+        font-size: 42px;
+        color: $primary-color;
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 400;
+        color: $secondary-color;
+    }
+}
+
+.button {
+    background-color: $button-color;
+    padding: 10px 40px;
+    width: 100%;
+    max-width: 214px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.modalContent {
+    padding: 30px;
+}
+
+.closeButtonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
