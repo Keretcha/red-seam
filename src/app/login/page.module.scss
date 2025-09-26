@@ -1,0 +1,82 @@
+@import '../../shared/styles/colors.scss';
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    max-width: 1720px;
+    gap: 173px;
+    // padding: 12px 20px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.loginWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 554px;
+    width: 100%;
+
+    h2 {
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 42px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 46px;
+    width: 100%;
+}
+
+.fieldsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.buttonAndCaptionWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.register {
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    gap: 8px;
+}
+
+.registerButton {
+    color: $button-color;
+    font-weight: 500;
+    font-size: 14px;
+}
