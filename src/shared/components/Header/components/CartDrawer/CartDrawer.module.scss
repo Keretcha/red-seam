@@ -1,0 +1,59 @@
+@import "../../../../styles/colors.scss";
+
+
+.drawerContainer {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 152px;
+    border-radius: 0;
+}
+
+.drawerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: $primary-color;
+    }
+    
+    span {
+        font-size: 14px;
+        font-weight: 400;
+        color: $secondary-color;
+    }
+}
+
+
+.xIcon {
+    cursor: pointer;
+}
+
+.cartIconWrapper {
+    cursor: pointer;
+}
+
+.buttonWrapper {
+    padding: 10px 20px;
+
+}
