@@ -8,7 +8,7 @@ import {
   ModalContent,
   ModalHeader,
 } from "@heroui/react";
-import DoneIcon from "../Icons/Done";
+import DoneIcon from "../Icons/DoneIcon";
 import styles from "./Congrats.module.scss";
 import { Dispatch, FC, SetStateAction } from "react";
 import CloseModalIcon from "../Icons/CloseModalIcon";
