@@ -1,14 +1,31 @@
 /** @format */
+import { getUser } from "@/shared/actions/user.actions";
 import styles from "./Header.module.scss";
 import LoginButton from "./components/LoginButton/LoginButton";
 import Logo from "./components/Logo/Logo";
+import CartIcon from "../Icons/CartIcon";
+import Image from "next/image";
+import Cart from "./components/CartDrawer/CartDrawer";
 
-const Header = () => {
+const Header = async () => {
+  const user = await getUser();
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <Logo />
-        <LoginButton />
+        {!user && <LoginButton />}
+        {user && (
+          <div className={styles.wrapper}>
+            <Cart />
+            <Image
+              src={"/images/avatar.png"}
+              alt='avatarImage'
+              width={40}
+              height={40}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
