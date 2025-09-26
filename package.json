@@ -10,14 +10,18 @@
   },
   "dependencies": {
     "@heroui/react": "^2.8.4",
+    "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/cli": "^4.1.13",
     "@tailwindcss/postcss": "^4.1.13",
     "dotenv": "^17.2.2",
     "framer-motion": "^12.23.16",
+    "js-cookie": "^3.0.5",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sass": "^1.93.0"
+    "react-hook-form": "^7.63.0",
+    "sass": "^1.93.0",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

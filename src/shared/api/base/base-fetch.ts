@@ -1,3 +1,5 @@
+/** @format */
+
 import {
   IData,
   IPaginatedData,
@@ -6,14 +8,13 @@ import { API_CONFIG } from "@/shared/config/config";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-
 export const baseFetch = async <T, P extends boolean = false>(
   url: string,
   data?: RequestInit,
-  isFormData = false,
+  isFormData = false
 ): Promise<P extends true ? IPaginatedData<T> : IData<T>> => {
   const cookiesStore = await cookies();
-  const accessToken = cookiesStore.get('accessToken')?.value;
+  const accessToken = cookiesStore.get("accessToken")?.value;
 
   const headers = {
     ...(data?.headers ?? {}),
@@ -40,7 +41,7 @@ export const baseFetch = async <T, P extends boolean = false>(
     return redirect("/logout");
   }
 
-  let body = {};
+  let body: { data?: T } = {};
 
   try {
     body = await res.json();
@@ -48,8 +49,17 @@ export const baseFetch = async <T, P extends boolean = false>(
     console.error(e);
   }
 
-  return {
+  let returnable = {
     ok: res.ok,
-    ...body,
-  } as P extends true ? IPaginatedData<T> : IData<T>;
+  };
+
+  if (!body["data"]) {
+    Object.assign(returnable, {
+      data: body,
+    });
+  } else {
+    returnable = { ...returnable, ...body };
+  }
+
+  return returnable as P extends true ? IPaginatedData<T> : IData<T>;
 };

@@ -1,0 +1,9 @@
+@import "../../styles/colors.scss";
+
+.buttonWrapper {
+    background-color: $button-color;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 20px;
+}
