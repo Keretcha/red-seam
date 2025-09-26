@@ -24,6 +24,10 @@ export const baseFetch = async <T, P extends boolean = false>(
     Object.assign(headers, {
       "Content-Type": "application/json",
     });
+  } else {
+    Object.assign(headers, {
+      "Content-Type": "multipart/form-data",
+    })
   }
 
   if (accessToken) {
@@ -48,6 +52,8 @@ export const baseFetch = async <T, P extends boolean = false>(
   } catch (e) {
     console.error(e);
   }
+
+  console.log(res, 'base-res')
 
   let returnable = {
     ok: res.ok,

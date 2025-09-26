@@ -24,12 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <HeroUIProvider>
-        <body className={`${poppins.className}`}>
+      <body className={`${poppins.className}`}>
+        <HeroUIProvider>
           <Header />
           {children}
-        </body>
-      </HeroUIProvider>
+        </HeroUIProvider>
+      </body>
     </html>
   );
 }

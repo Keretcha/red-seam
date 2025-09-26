@@ -6,22 +6,36 @@ import { cookies } from "next/headers";
 import { authService } from "../services/auth.service";
 import { IUser } from "../types/interfaces/user.interface";
 import { redirect } from "next/navigation";
+import { IAuthResponse } from "../types/interfaces/auth-response.interface";
+import { IRegisterRequest } from "../types/interfaces/register-request.interface";
 
 export const login = async (email: string, password: string) => {
   const res = await authService.login(email, password);
 
   if (res.data) {
-    await Promise.all([setUser(res.data.user), setToken(res.data.token)]);
-    redirect("/");
-    return;
+    return handleAuthResponse(res.data);
   }
 
   return res;
 };
 
+export const register = async (body: IRegisterRequest) => {
+  const res = await authService.register(body);
+
+  if (res.ok) {
+    return handleAuthResponse(res.data);
+  }
+
+  return res;
+};
+
+const handleAuthResponse = async (authResp: IAuthResponse) => {
+  await Promise.all([setUser(authResp.user), setToken(authResp.token)]);
+  redirect("/");
+};
+
 const setUser = async (user: IUser) => {
   const cookiesStore = await cookies();
-  console.log(JSON.stringify(user));
 
   cookiesStore.set("user", JSON.stringify(user), {
     httpOnly: true,

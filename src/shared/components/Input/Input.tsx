@@ -1,7 +1,5 @@
 /** @format */
-
 import { InputProps as HeroUIInputProps } from "@heroui/react";
-import { FC } from "react";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 import { Input as HeroUIInput } from "@heroui/react";
 
