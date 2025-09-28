@@ -17,6 +17,7 @@ export const baseFetch = async <T, P extends boolean = false>(
   const accessToken = cookiesStore.get("accessToken")?.value;
 
   const headers = {
+    Accept: "application/json",
     ...(data?.headers ?? {}),
   };
 
@@ -27,7 +28,7 @@ export const baseFetch = async <T, P extends boolean = false>(
   } else {
     Object.assign(headers, {
       "Content-Type": "multipart/form-data",
-    })
+    });
   }
 
   if (accessToken) {
@@ -53,7 +54,6 @@ export const baseFetch = async <T, P extends boolean = false>(
     console.error(e);
   }
 
-  console.log(res, 'base-res')
 
   let returnable = {
     ok: res.ok,
