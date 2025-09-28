@@ -17,7 +17,6 @@ import { ILoginRequest } from "@/shared/types/interfaces/login-request.interface
 
 export default function App() {
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors },

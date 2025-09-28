@@ -1,0 +1,30 @@
+@import "../../styles/colors.scss";
+
+.wrapper {
+    width: 100%;
+    max-width: 578px;
+    background: none;
+    box-shadow: none;
+}
+
+.inputWrapper {
+    padding: 8px 12px;
+    width: 100%;
+    color: $secondary-color;
+    border: 1px solid $grey;
+    background-color: #fff;
+    box-shadow: none;
+    border-radius: 8px;
+    min-height: 0;
+    height: auto;
+    display: flex;
+    gap: 4px;
+}
+
+.input {
+    color: $secondary-color;
+}
+
+input::placeholder {
+    color: $secondary-color;
+}

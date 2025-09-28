@@ -1,0 +1,70 @@
+@import "../../shared/styles/colors.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 42px;
+}
+
+.heading {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1720px;
+    font-size: 42px;
+    font-weight: 600;
+    padding-top: 72px;
+    color: $primary-color;
+}
+
+.content {
+    width: 100%;
+    max-width: 1720px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 1129px;
+    height: 635px;
+    background-color: $grey;
+    gap: 32px;
+    border-radius: 8px;
+    padding: 72px 42px;
+
+    h3 {
+        font-size: 22px;
+        font-weight: 500;
+        color: $primary-color;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 578px;
+}
+
+
+.name {
+    display: flex;
+    gap: 24px;
+}
+
+.address {
+    display: flex;
+    gap: 24px;
+}
+
+.cards {
+    border: 1px solid red;
+    width: 460px;
+    height: 635px;
+}
