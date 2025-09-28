@@ -1,0 +1,18 @@
+/** @format */
+
+@import "../../../../../shared/styles/colors.scss";
+
+.quantity {
+  border: 1px solid $grey;
+  padding: 4px 8px;
+  border-radius: 22px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.disabledQuantityButton {
+  cursor: none;
+  pointer-events: none;
+  opacity: 0.5;
+}

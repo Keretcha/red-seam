@@ -6,9 +6,13 @@ import Logo from "./components/Logo/Logo";
 import CartIcon from "../Icons/CartIcon";
 import Image from "next/image";
 import Cart from "./components/CartDrawer/CartDrawer";
+import { cartService } from "@/shared/services/cart.service";
 
 const Header = async () => {
-  const user = await getUser();
+  const [user, products] = await Promise.all([
+    getUser(),
+    cartService.getCart(),
+  ]);
 
   return (
     <div className={styles.container}>
@@ -17,7 +21,7 @@ const Header = async () => {
         {!user && <LoginButton />}
         {user && (
           <div className={styles.wrapper}>
-            <Cart />
+            <Cart products={products.data} />
             <Image
               src={"/images/avatar.png"}
               alt='avatarImage'

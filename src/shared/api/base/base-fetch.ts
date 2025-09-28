@@ -1,5 +1,6 @@
 /** @format */
 
+import { getToken } from "@/shared/actions/user.actions";
 import {
   IData,
   IPaginatedData,
@@ -14,7 +15,7 @@ export const baseFetch = async <T, P extends boolean = false>(
   isFormData = false
 ): Promise<P extends true ? IPaginatedData<T> : IData<T>> => {
   const cookiesStore = await cookies();
-  const accessToken = cookiesStore.get("accessToken")?.value;
+  const accessToken = await getToken();
 
   const headers = {
     Accept: "application/json",
@@ -42,9 +43,11 @@ export const baseFetch = async <T, P extends boolean = false>(
     headers,
   });
 
-  if (res.status === 401 && accessToken) {
-    return redirect("/logout");
-  }
+  console.log(headers);
+
+  // if (res.status === 401 && accessToken) {
+  //   return redirect("/logout");
+  // }
 
   let body: { data?: T } = {};
 
@@ -53,7 +56,6 @@ export const baseFetch = async <T, P extends boolean = false>(
   } catch (e) {
     console.error(e);
   }
-
 
   let returnable = {
     ok: res.ok,

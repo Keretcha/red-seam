@@ -1,0 +1,10 @@
+/** @format */
+
+@import "../../../../styles/colors.scss";
+
+.delete {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 12px;
+  color: $secondary-color;
+}
