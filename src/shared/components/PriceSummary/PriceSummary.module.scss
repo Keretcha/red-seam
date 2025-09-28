@@ -1,0 +1,30 @@
+/** @format */
+@import "../../../shared/styles/colors.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.price {
+  font-weight: 400;
+  font-size: 16px;
+  color: $secondary-color;
+}
+
+.totalPrice {
+  font-weight: 500;
+  font-size: 20px;
+  color: $primary-color;
+}

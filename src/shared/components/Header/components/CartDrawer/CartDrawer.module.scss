@@ -1,59 +1,74 @@
+/** @format */
+
 @import "../../../../styles/colors.scss";
 
-
 .drawerContainer {
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 152px;
-    border-radius: 0;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 62px;
+  border-radius: 0;
 }
 
 .drawerHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
 }
 
 .cartWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 58px;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
+  align-items: center;
+  justify-content: center;
 
-    h3 {
-        font-size: 24px;
-        font-weight: 600;
-        color: $primary-color;
-    }
-    
-    span {
-        font-size: 14px;
-        font-weight: 400;
-        color: $secondary-color;
-    }
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    color: $secondary-color;
+  }
 }
 
-
 .xIcon {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .cartIconWrapper {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .buttonWrapper {
-    padding: 10px 20px;
+  padding: 10px 20px;
+}
 
+.mainWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.priceSummaryWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 102px;
 }

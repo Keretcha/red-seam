@@ -17,6 +17,41 @@ export const addProductToCart = async (
     quantity,
     size
   );
-  revalidateTag("cart");
+
+  revalidateTag("cart-products");
+  return res;
+};
+
+export const removeProductFromCart = async (
+  productId: number,
+  size: string,
+  color: string
+) => {
+  const res = await cartService.removeProductFromCart(productId, size, color);
+
+  if (res.ok) {
+    revalidateTag("cart-products");
+  }
+
+  return res;
+};
+
+export const updateProductQuantityInCart = async (
+  productId: number,
+  size: string,
+  color: string,
+  quantity: number
+) => {
+  const res = await cartService.updateProductQuantityInCart(
+    productId,
+    size,
+    color,
+    quantity
+  );
+
+  if (res.ok) {
+    revalidateTag("cart-products");
+  }
+
   return res;
 };
