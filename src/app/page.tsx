@@ -48,6 +48,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
             {products.data?.map((product: any) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 title={product.name}
                 price={product.price}
                 imageUrl={product.cover_image}

@@ -1,0 +1,36 @@
+/** @format */
+@import "../../../../../shared/styles/colors.scss";
+
+.quantityWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.trigger {
+  width: 70px;
+  height: 42px;
+  display: flex;
+  //   justify-content: center;
+  border: 1px solid $grey;
+  background: none;
+}
+
+.innerWrapper {
+  color: red;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.value {
+  display: flex;
+  justify-content: center;
+}
+
+.listbox {
+  padding: 10px;
+
+  ul li:hover {
+    background: none;
+  }
+}

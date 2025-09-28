@@ -1,7 +1,7 @@
 /** @format */
 import { FC } from "react";
 import styles from "./Button.module.scss";
-import { ButtonProps, Button as HeroUIButton } from "@heroui/react";
+import { ButtonProps, Button as HeroUIButton } from "@heroui/button";
 
 const Button: FC<ButtonProps> = (props) => {
   return (

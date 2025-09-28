@@ -1,0 +1,58 @@
+/** @format */
+
+@import "../../../shared/styles/colors.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.containerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 1720px;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+// details style
+
+.headingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: $primary-color;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.optionsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.productDetailsWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 704px;
+  width: 100%;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid $grey; 
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+/** @format */
+
+@import "../../../../../shared/styles/colors.scss";
+
+.sizeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sizes {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.size {
+  border: 1px solid $grey;
+  border-radius: 10px;
+  padding: 9px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  cursor: pointer;
+}
+
+.activeSize {
+  border-color: $primary-color;
+  color: $primary-color;
+}
