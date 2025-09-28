@@ -1,0 +1,49 @@
+/** @format */
+@import "../../../../../shared/styles/colors.scss";
+
+.colorsAndHeadingWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.colorsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.color {
+  width: 38px;
+  height: 38px;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.colorHeading {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.colorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.activeColor {
+  border-color: $grey;
+}
+
+.color {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}

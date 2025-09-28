@@ -1,0 +1,16 @@
+/** @format */
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > img {
+    cursor: pointer;
+  }
+}
+
+.imagesWrapper {
+  display: flex;
+  gap: 24px;
+}

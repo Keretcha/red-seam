@@ -1,0 +1,35 @@
+/** @format */
+
+@import "../../../../../shared/styles/colors.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 56px;
+}
+
+.headingAndBrandWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: $primary-color;
+  }
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  color: $secondary-color;
+  font-weight: 400;
+  font-size: 16px;
+}
