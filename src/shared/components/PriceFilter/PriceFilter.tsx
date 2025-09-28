@@ -9,7 +9,6 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-  Input,
 } from "@heroui/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import PriceFilterInput from "./components/PriceFilterInput/PriceFilterInput";
@@ -29,7 +28,7 @@ const PriceFilter = () => {
 
     setPriceFrom(priceFrom);
     setPriceTo(priceTo);
-  }, []);
+  }, [searchParams]);
 
   const onApplyClick = () => {
     const currentSearchParams = new URLSearchParams(searchParams);

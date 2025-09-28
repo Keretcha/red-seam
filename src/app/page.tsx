@@ -7,9 +7,19 @@ import Pagination from "@/shared/components/Pagination/Pagination";
 import PriceFilter from "@/shared/components/PriceFilter/PriceFilter";
 import PriceTag from "@/shared/components/PriceTag/PriceTag";
 import SortBy from "@/shared/components/SortBy/SortBy";
+import { NextPage } from "next";
 
-export default async function Home({ searchParams }: { searchParams: any }) {
-  const { priceFrom, priceTo, sort, page } = searchParams;
+interface SearchParams {
+  priceFrom: string;
+  priceTo: string;
+  sort: string;
+  page: string;
+}
+
+const ProductsPage: NextPage<{ searchParams: Promise<SearchParams> }> = async (
+  props
+) => {
+  const { priceFrom, priceTo, sort, page } = await props.searchParams;
 
   const products = await productsService.getProducts(
     priceFrom,
@@ -45,7 +55,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
             {priceFrom && priceTo && <PriceTag />}
           </div>
           <div className={styles.productsWrapper}>
-            {products.data?.map((product: any) => (
+            {products.data?.map((product) => (
               <ProductCard
                 key={product.id}
                 id={product.id}
@@ -60,4 +70,6 @@ export default async function Home({ searchParams }: { searchParams: any }) {
       </div>
     </div>
   );
-}
+};
+
+export default ProductsPage;

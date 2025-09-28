@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import styles from "./ProductItem.module.scss";
-import PlusIcon from "../Icons/PlusIcon";
-import MinusIcon from "../Icons/MinusIcon";
 import { FC } from "react";
 import RemoveButton from "./components/RemoveButton/RemoveButton";
 import QuantityPicker from "./components/QuantityPicker/QuantityPicker";

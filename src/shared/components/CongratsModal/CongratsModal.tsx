@@ -12,6 +12,7 @@ import DoneIcon from "../Icons/DoneIcon";
 import styles from "./CongratsModal.module.scss";
 import { Dispatch, FC, SetStateAction } from "react";
 import CloseModalIcon from "../Icons/CloseModalIcon";
+import Link from "next/link";
 
 interface Props {
   isOpen: boolean;
@@ -47,7 +48,7 @@ const Congrats: FC<Props> = (props) => {
                 <span>Your order is placed successfully!</span>
               </div>
             </div>
-            <Button href='/' className={styles.button}>
+            <Button href='/' as={Link} className={styles.button}>
               <span>Continue shopping</span>
             </Button>
           </div>

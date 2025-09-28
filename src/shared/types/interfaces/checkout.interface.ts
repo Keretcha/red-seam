@@ -1,9 +1,9 @@
 /** @format */
 
 export interface ICheckoutRequest {
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
+  zip_code: string;
   address: string;
-  zip: string;
 }

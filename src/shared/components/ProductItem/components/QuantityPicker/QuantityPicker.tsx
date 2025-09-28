@@ -35,7 +35,7 @@ const QuantityPicker: FC<Props> = (props) => {
       props.color,
       quantity
     );
-  }, [quantity]);
+  }, [quantity, props.productId, props.size, props.color]);
 
   return (
     <div className={styles.quantity}>

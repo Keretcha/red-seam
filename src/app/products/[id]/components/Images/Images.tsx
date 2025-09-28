@@ -17,6 +17,7 @@ const Images: FC<Props> = (props) => {
       <div className={styles.images}>
         {props.images.map((image, idx) => (
           <Image
+            key={image}
             onClick={() => handleImageOrColorChange(idx)}
             src={image}
             alt={"singleProduct"}

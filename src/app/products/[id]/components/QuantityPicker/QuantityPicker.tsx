@@ -20,7 +20,7 @@ const QuantityPicker = () => {
     }
 
     return returnable;
-  }, []);
+  }, [product.quantity]);
 
   return (
     <div className={styles.quantityWrapper}>

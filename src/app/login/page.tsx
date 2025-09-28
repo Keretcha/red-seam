@@ -2,7 +2,6 @@
 "use client";
 
 import React from "react";
-import { Input } from "@heroui/react";
 import styles from "./page.module.scss";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
@@ -19,7 +18,6 @@ export default function App() {
   const {
     handleSubmit,
     control,
-    formState: { errors },
   } = useForm({
     resolver: zodResolver(loginSchema),
   });

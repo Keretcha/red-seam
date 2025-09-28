@@ -4,6 +4,7 @@
 
 import { revalidateTag } from "next/cache";
 import { cartService } from "../services/cart.service";
+import { ICheckoutRequest } from "../types/interfaces/checkout.interface";
 
 export const addProductToCart = async (
   productId: number,
@@ -48,6 +49,19 @@ export const updateProductQuantityInCart = async (
     color,
     quantity
   );
+
+  if (res.ok) {
+    revalidateTag("cart-products");
+  }
+
+  return res;
+};
+
+export const checkoutCart = async (data: ICheckoutRequest) => {
+  console.log("here");
+  const res = await cartService.checkoutCart(data);
+
+  console.log(res, "res");
 
   if (res.ok) {
     revalidateTag("cart-products");

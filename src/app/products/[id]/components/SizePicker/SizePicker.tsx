@@ -15,6 +15,7 @@ const SizePicker = () => {
       <div className={styles.sizes}>
         {product.available_sizes.map((size) => (
           <div
+            key={size}
             onClick={() => setSelectedSize(size)}
             className={`${styles.size} ${
               selectedSize === size ? styles.activeSize : ""

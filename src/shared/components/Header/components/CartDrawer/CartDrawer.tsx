@@ -1,7 +1,6 @@
 /** @format */
 "use client";
 
-import { IProduct } from "@/shared/types/interfaces/product.interface";
 import { Drawer, DrawerBody, DrawerContent, DrawerHeader } from "@heroui/react";
 import styles from "./CartDrawer.module.scss";
 import Button from "../../../Button/Button";
@@ -79,6 +78,7 @@ const Cart = (props: Props) => {
 
                 return (
                   <ProductItem
+                    key={product.id}
                     id={product.id}
                     title={product.name}
                     size={product.size}

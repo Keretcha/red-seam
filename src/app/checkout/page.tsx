@@ -1,15 +1,17 @@
 /** @format */
-"use client";
-
 import styles from "./page.module.scss";
-import CheckoutInput from "@/shared/components/CheckoutInput/CheckoutInput";
-import { useForm } from "react-hook-form";
-import { ICheckoutRequest } from "@/shared/types/interfaces/checkout.interface";
-import Image from "next/image";
-import EmailIcon from "@/shared/components/Icons/emailIcon";
+import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
+import { getUser } from "@/shared/actions/user.actions";
+import { cartService } from "@/shared/services/cart.service";
+import ProductItem from "@/shared/components/ProductItem/ProductItem";
+import PriceSummary from "@/shared/components/PriceSummary/PriceSummary";
+import Button from "@/shared/components/Button/Button";
 
-export default function App(props: ICheckoutRequest) {
-  const { control } = useForm<ICheckoutRequest>({});
+const CheckoutPage = async () => {
+  const [user, products] = await Promise.all([
+    getUser(),
+    cartService.getCart(),
+  ]);
 
   return (
     <div className={styles.container}>
@@ -19,50 +21,40 @@ export default function App(props: ICheckoutRequest) {
       <div className={styles.content}>
         <div className={styles.details}>
           <h3>Order details</h3>
-          <div className={styles.form}>
-            <div className={styles.name}>
-              <CheckoutInput
-                fullWidth={true}
-                name='firstName'
-                placeholder='Name'
-                control={control}
-              />
-              <CheckoutInput
-                fullWidth={true}
-                name='lastName'
-                placeholder='Surname'
-                control={control}
-              />
-            </div>
-            <div className={styles.email}>
-              <CheckoutInput
-                fullWidth={true}
-                name='email'
-                placeholder='Email'
-                control={control}
-                startContent={<EmailIcon />}
-              />
-            </div>
-            <div className={styles.address}>
-              <CheckoutInput
-                fullWidth={true}
-                name='address'
-                placeholder='Address'
-                control={control}
-              />
-              <CheckoutInput
-                fullWidth={true}
-                name='zip'
-                placeholder='Zip code'
-                control={control}
-              />
-            </div>
-          </div>
+          <CheckoutForm userEmail={user?.email ?? ""} />
         </div>
-        <div className={styles.clothing}>
-          <div className={styles.cards}></div>
+        <div className={styles.cards}>
+          <div className={styles.productsWrapper}>
+            {products.data.map((product) => {
+              const colorIndex = product.available_colors.indexOf(
+                product.color
+              );
+              const imageSrc = product.images[colorIndex];
+
+              return (
+                <ProductItem
+                  key={product.id}
+                  id={product.id}
+                  title={product.name}
+                  size={product.size}
+                  color={product.color}
+                  price={product.price}
+                  quantity={product.quantity}
+                  imageSrc={imageSrc}
+                />
+              );
+            })}
+          </div>
+          <div className={styles.summaryWrapper}>
+            <PriceSummary products={products.data} />
+            <Button type='submit' form='checkout-form' fullWidth>
+              Pay
+            </Button>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default CheckoutPage;

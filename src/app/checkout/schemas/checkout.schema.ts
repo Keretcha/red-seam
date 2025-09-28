@@ -3,7 +3,9 @@
 import z from "zod";
 
 export const checkoutSchema = z.object({
-  username: z.string(),
-  surename: z.string(),
+  name: z.string(),
+  surname: z.string(),
   email: z.email(),
+  zip_code: z.string(),
+  address: z.string(),
 });

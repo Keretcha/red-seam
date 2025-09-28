@@ -4,7 +4,6 @@
 import { Pagination as HeroUIPagination } from "@heroui/react";
 import styles from "./Pagination.module.scss";
 import { useRouter, useSearchParams } from "next/navigation";
-import { number } from "framer-motion";
 import { FC } from "react";
 
 interface Props {
@@ -16,7 +15,7 @@ const Pagination: FC<Props> = (props) => {
   const searchParams = useSearchParams();
 
   const onPageChange = (page: number) => {
-    const currentSearchParams = new URLSearchParams();
+    const currentSearchParams = new URLSearchParams(searchParams);
     currentSearchParams.delete("page");
     currentSearchParams.append("page", String(page));
 

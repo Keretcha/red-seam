@@ -1,6 +1,7 @@
 /** @format */
 
 import { baseFetch } from "../api/base/base-fetch";
+import { ICheckoutRequest } from "../types/interfaces/checkout.interface";
 import { ISingleProduct } from "../types/interfaces/single-product.interface";
 
 class CartService {
@@ -56,6 +57,15 @@ class CartService {
       }),
     });
   }
+
+  public async checkoutCart(data: ICheckoutRequest) {
+    return await baseFetch('cart/checkout', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+  }
 }
 
 export const cartService = new CartService();
+
+

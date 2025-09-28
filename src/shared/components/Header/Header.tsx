@@ -3,7 +3,6 @@ import { getUser } from "@/shared/actions/user.actions";
 import styles from "./Header.module.scss";
 import LoginButton from "./components/LoginButton/LoginButton";
 import Logo from "./components/Logo/Logo";
-import CartIcon from "../Icons/CartIcon";
 import Image from "next/image";
 import Cart from "./components/CartDrawer/CartDrawer";
 import { cartService } from "@/shared/services/cart.service";

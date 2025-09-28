@@ -1,0 +1,18 @@
+/** @format */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 578px;
+}
+
+.name {
+  display: flex;
+  gap: 24px;
+}
+
+.address {
+  display: flex;
+  gap: 24px;
+}

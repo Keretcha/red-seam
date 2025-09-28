@@ -6,15 +6,12 @@ import {
   IPaginatedData,
 } from "@/shared/api/types/interfaces/data.interface";
 import { API_CONFIG } from "@/shared/config/config";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export const baseFetch = async <T, P extends boolean = false>(
   url: string,
   data?: RequestInit,
   isFormData = false
 ): Promise<P extends true ? IPaginatedData<T> : IData<T>> => {
-  const cookiesStore = await cookies();
   const accessToken = await getToken();
 
   const headers = {
@@ -42,12 +39,6 @@ export const baseFetch = async <T, P extends boolean = false>(
     ...(data ?? {}),
     headers,
   });
-
-  console.log(headers);
-
-  // if (res.status === 401 && accessToken) {
-  //   return redirect("/logout");
-  // }
 
   let body: { data?: T } = {};
 

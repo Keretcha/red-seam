@@ -1,10 +1,6 @@
 /** @format */
 
 import styles from "./page.module.scss";
-import Image from "next/image";
-import { Select, SelectItem } from "@heroui/select";
-import Button from "@/shared/components/Button/Button";
-import WhiteCartICon from "@/shared/components/Icons/WhiteCartICon";
 import { NextPage } from "next";
 import { productsService } from "@/shared/services/products.service";
 import QuantityPicker from "./components/QuantityPicker/QuantityPicker";

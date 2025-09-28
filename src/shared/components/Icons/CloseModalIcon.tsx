@@ -1,8 +1,8 @@
 /** @format */
 
 interface Props {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 const CloseModalIcon = (props: Props) => {
